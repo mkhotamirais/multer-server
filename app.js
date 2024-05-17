@@ -15,6 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
+  console.log("halo");
   //   console.log(req.protocol);
   res.render("index");
 });
