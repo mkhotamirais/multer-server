@@ -6,10 +6,10 @@ const { log } = require("console");
 const mongoose = require("mongoose");
 const path = require("path");
 const multer = require("multer");
-const upload = multer({ dest: "uploads" });
+const upload = multer({ dest: "uploads/" });
 
 app.set("view engine", "ejs");
-app.set("views", path.resolve("./views"));
+// app.set("views", path.resolve("./views"));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
