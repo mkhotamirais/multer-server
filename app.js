@@ -6,7 +6,7 @@ const { log } = require("console");
 const mongoose = require("mongoose");
 const path = require("path");
 const multer = require("multer");
-const upload = multer({ dest: "uploads/" });
+const upload = multer({ dest: path.join(__dirname, "uploads") });
 
 app.set("view engine", "ejs");
 // app.set("views", path.resolve("./views"));
@@ -16,7 +16,6 @@ app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
   //   console.log(req.protocol);
-  console.log(req);
   return res.render("index");
 });
 
