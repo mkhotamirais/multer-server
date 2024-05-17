@@ -9,20 +9,20 @@ const multer = require("multer");
 const upload = multer({ dest: path.join(__dirname, "uploads") });
 
 app.set("view engine", "ejs");
-// app.set("views", path.resolve("./views"));
+app.set("views", path.resolve("./views"));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
   //   console.log(req.protocol);
-  return res.render("index");
+  res.render("index");
 });
 
 app.post("/upload", upload.single("myImage"), (req, res) => {
   //   console.log(req.body);
   //   console.log(req.file);
-  return res.redirect("/");
+  res.redirect("/");
 });
 
 // const storage = multer.diskStorage({
