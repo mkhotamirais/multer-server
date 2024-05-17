@@ -19,8 +19,9 @@ app.get("/", (req, res) => {
   console.log("semuanya");
   console.log(req.hostname);
   console.log(req.protocol);
+  const nama = `${req.protocol}//${req.hostname}`;
   //   console.log(req.protocol);
-  res.render("index");
+  res.render("index", { nama });
 });
 
 app.post("/upload", upload.single("myImage"), (req, res) => {
