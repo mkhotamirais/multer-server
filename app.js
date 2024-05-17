@@ -38,18 +38,19 @@ app.post("/upload", upload.single("myImage"), (req, res) => {
 
 // const upload = multer({ storage: storage });
 
-const db = mongoose.connect(process.env.MONGO_URI);
+// app.get("/", (req, res) => {
+//   res.send("halo");
+// });
 
-app.get("/", (req, res) => {
-  res.send("halo");
-});
+// app.post("/api/upload", upload.single("myImage"), (req, res) => {
+//   res.json(req.file);
+// });
 
-app.post("/api/upload", upload.single("image"), (req, res) => {
-  res.json(req.file);
-});
-
-db.then(() => {
-  app.listen(port, () => log(`listening on port ${port}`));
-}).catch((err) => {
-  console.log(err?.message);
-});
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    app.listen(port, () => log(`listening on port ${port}`));
+  })
+  .catch((err) => {
+    console.log(err?.message);
+  });
